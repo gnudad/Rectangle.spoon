@@ -29,5 +29,9 @@ hs.loadSpoon("Rectangle"):bindHotkeys({
   smaller      = { mods, "-" },
   larger       = { mods, "=" },
   center       = { mods, "0" },
+  focus_left   = { mods, "h" },
+  focus_right  = { mods, "l" },
+  focus_up     = { mods, "k" },
+  focus_down   = { mods, "j" },
 })
 ```
