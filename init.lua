@@ -38,14 +38,6 @@ function obj:resize(delta)
   hs.window.animationDuration = animationDuration
 end
 
-function obj:center()
-  local frame = hs.window.focusedWindow():frame()
-  local screen = hs.screen.mainScreen():fullFrame()
-  frame.x = (screen.w - frame.w) / 2
-  frame.y = (screen.h - frame.h) / 2
-  hs.window.focusedWindow():setFrame(frame)
-end
-
 local function bindSpecIf(bindSpec, pressedfn)
   if bindSpec == nil then return end
   hs.hotkey.bindSpec(bindSpec, pressedfn)
@@ -65,7 +57,8 @@ function obj:bindHotkeys(mapping)
   bindSpecIf(mapping.almost_max,   function() self:move({0.1, 0.1, 0.8, 0.8}) end)
   bindSpecIf(mapping.smaller,      function() self:resize(-100) end)
   bindSpecIf(mapping.larger,       function() self:resize(100) end)
-  bindSpecIf(mapping.center,       function() self:center() end)
+  bindSpecIf(mapping.center,
+    function() hs.window.focusedWindow():centerOnScreen() end)
   bindSpecIf(mapping.focus_left,
     function() hs.window.focusedWindow():focusWindowWest(nil, true, true) end)
   bindSpecIf(mapping.focus_right,
