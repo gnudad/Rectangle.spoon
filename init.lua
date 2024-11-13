@@ -64,9 +64,9 @@ function obj:bindHotkeys(mapping)
   bindSpecIf(mapping.focus_right,
     function() hs.window.focusedWindow():focusWindowEast(nil, true, true) end)
   bindSpecIf(mapping.focus_up,
-    function() hs.window.focusedWindow():focusWindowNorth(nil, false, true) end)
+    function() hs.window.focusedWindow():focusWindowNorth(nil, true, true) end)
   bindSpecIf(mapping.focus_down,
-    function() hs.window.focusedWindow():focusWindowSouth(nil, false, true) end)
+    function() hs.window.focusedWindow():focusWindowSouth(nil, true, true) end)
   return self
 end
 
